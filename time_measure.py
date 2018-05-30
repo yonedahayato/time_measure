@@ -1,3 +1,4 @@
+import datetime import datetime
 import pandas as pd
 import time
 from time import sleep
@@ -5,7 +6,8 @@ from time import sleep
 class Time_Measure:
     def __init__(self, save_path="/Users/yoneda/github/time_measure/"):
         self.save_path = save_path
-        self.save_file_name = "time_measure_result.csv"
+        now = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+        self.save_file_name = "time_measure_result_{}.csv".format(now)
 
         self.point_dict = {}
         self.resutlt_df = pd.DataFrame({"point_name": [], "start": [], "elapsed": [], "explanation": []})
